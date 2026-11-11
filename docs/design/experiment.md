@@ -5,8 +5,9 @@
 ## 准备（约半天）
 
 1. 把 [prompts/principles.md](../../prompts/principles.md) 的正文复制到三个 client 的个人配置（位置见 [architecture.md](architecture.md)）。
-2. 选 1–2 个正在进行的真实项目（至少一个编码项目；有的话加一个非编码项目），在根目录建最小的 `AGENTS.md`（只写目前确实知道的约定和命令），加 `CLAUDE.md` 转接。
-3. 把 [prompts/distill.md](../../prompts/distill.md) 存成各 client 能快速调用的形式（自定义命令、snippet 或直接粘贴）。
+2. 设环境变量 `AGENT_HOME` 指向本仓库的本地 clone；支持 skill 的 client，把 `tools/` 下的工具目录软链到它的个人 skills 目录。
+3. 选 1–2 个正在进行的真实项目（至少一个编码项目；有的话加一个非编码项目），在根目录建最小的 `AGENTS.md`（只写目前确实知道的约定和命令），加 `CLAUDE.md` 转接。
+4. 把 [prompts/distill.md](../../prompts/distill.md) 存成各 client 能快速调用的形式（自定义命令、snippet 或直接粘贴）。
 
 ## 进行中
 
@@ -27,4 +28,4 @@
 | 有效，但某个环节明显麻烦（如三处配置手工同步） | 只针对这个环节写工具 |
 | 出现基线解决不了的需求 | 针对该需求做第三方记忆服务选型 |
 
-也顺带评估：原则 prompt 里哪几条真正改变了 agent 的行为，哪几条没用（没用的删掉）。
+也顺带评估：工具统计（`tools/bin/stats`）里，沉淀下来的工具是否真的被反复调用、评价如何；原则 prompt 里哪几条真正改变了 agent 的行为，哪几条没用（没用的删掉）。

@@ -32,28 +32,23 @@
   <!-- Panel 2 -->
   <rect x="630" y="90" width="590" height="400" rx="8" fill="none" stroke="#333" stroke-width="1.5"/>
   <circle cx="654" cy="115" r="13" fill="#333"/><text x="654" y="120" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
-  <text x="676" y="121" font-size="17" font-weight="bold">工作中：确定性优先 · 三次升级</text>
+  <text x="676" y="121" font-size="17" font-weight="bold">工作中：脚本优先 · 复用再沉淀</text>
   <rect x="650" y="140" width="550" height="330" rx="6" fill="#fff" stroke="#999"/>
   <rect x="650" y="140" width="550" height="28" rx="6" fill="#eee" stroke="#999"/>
   <circle cx="666" cy="154" r="4" fill="#bbb"/><circle cx="680" cy="154" r="4" fill="#bbb"/><circle cx="694" cy="154" r="4" fill="#bbb"/>
-  <rect x="670" y="184" width="510" height="64" rx="6" fill="#fff" stroke="#bbb"/>
-  <text x="685" y="208">Agent：这是第 3 次手动转换埋点 CSV。</text>
-  <text x="685" y="232" fill="#555">建议升级为脚本 scripts/convert_events.py（用途：每周报表）</text>
-  <rect x="685" y="258" width="70" height="28" rx="4" fill="#333"/><text x="720" y="277" fill="#fff" text-anchor="middle">接受</text>
-  <rect x="765" y="258" width="70" height="28" rx="4" fill="none" stroke="#999"/><text x="800" y="277" text-anchor="middle">稍后</text>
-  <rect x="845" y="258" width="70" height="28" rx="4" fill="none" stroke="#999"/><text x="880" y="277" text-anchor="middle">忽略</text>
-  <text x="670" y="318" font-weight="bold">升级阶梯（只升到够用的那一级）</text>
-  <rect x="670" y="330" width="100" height="36" rx="4" fill="none" stroke="#999"/><text x="720" y="353" text-anchor="middle">一次性命令</text>
-  <rect x="800" y="330" width="100" height="36" rx="4" fill="#333"/><text x="850" y="353" fill="#fff" text-anchor="middle">脚本</text>
-  <rect x="930" y="330" width="100" height="36" rx="4" fill="none" stroke="#999"/><text x="980" y="353" text-anchor="middle">skill</text>
-  <rect x="1060" y="330" width="120" height="36" rx="4" fill="none" stroke="#999"/><text x="1120" y="353" text-anchor="middle">工具（MCP）</text>
-  <line x1="770" y1="348" x2="798" y2="348" stroke="#555" marker-end="url(#ar)"/>
-  <line x1="900" y1="348" x2="928" y2="348" stroke="#555" marker-end="url(#ar)"/>
-  <line x1="1030" y1="348" x2="1058" y2="348" stroke="#555" marker-end="url(#ar)"/>
-  <line x1="670" y1="390" x2="1180" y2="390" stroke="#ddd"/>
-  <rect x="670" y="404" width="510" height="48" rx="6" fill="#fff" stroke="#bbb"/>
-  <text x="685" y="425">Agent：已运行 pnpm test，12/12 通过。</text>
-  <text x="685" y="445" fill="#555">（没跑过验证的结论会标注“未验证”）</text>
+  <rect x="670" y="182" width="510" height="64" rx="6" fill="#fff" stroke="#bbb"/>
+  <text x="685" y="206">Agent：这是批量数据转换，直接写临时脚本处理。</text>
+  <text x="685" y="230" fill="#555">处理 1,204 行，跳过 3 行（缺少时间戳），已抽样核对。</text>
+  <rect x="670" y="256" width="510" height="104" rx="6" fill="#fff" stroke="#bbb"/>
+  <text x="685" y="280">Agent：tools/candidates.md 里有同类记录（10-28）。</text>
+  <text x="685" y="304" fill="#555">建议沉淀为工具 csv-to-events（skill 格式，进工具库）</text>
+  <rect x="685" y="318" width="70" height="28" rx="4" fill="#333"/><text x="720" y="337" fill="#fff" text-anchor="middle">接受</text>
+  <rect x="765" y="318" width="70" height="28" rx="4" fill="none" stroke="#999"/><text x="800" y="337" text-anchor="middle">稍后</text>
+  <rect x="845" y="318" width="70" height="28" rx="4" fill="none" stroke="#999"/><text x="880" y="337" text-anchor="middle">忽略</text>
+  <rect x="670" y="372" width="510" height="62" rx="4" fill="#f3f3f3"/>
+  <text x="685" y="395" font-size="13" fill="#555">$ tools/bin/stats csv-to-events</text>
+  <text x="685" y="419" font-size="13">调用 7 次 · 成功 6 · 评价 ok 5 / partial 1 · 最近 11-12</text>
+  <text x="670" y="456" fill="#888" font-size="12">（没跑过验证的结论会标注“未验证”）</text>
 
   <!-- Panel 3 -->
   <rect x="20" y="510" width="590" height="440" rx="8" fill="none" stroke="#333" stroke-width="1.5"/>
@@ -74,7 +69,7 @@
   <text x="400" y="752" font-size="13">[接受]  [修改]  [拒绝]</text>
   <text x="72" y="774" fill="#1a7f37" font-size="13">+ 2026-11-12 · 图片处理 · 上传前需压缩到 500KB 以内</text>
   <text x="72" y="794" fill="#888" font-size="12">理由：这个主题第一次出现，先记在待归类</text>
-  <text x="60" y="830"><tspan font-weight="bold">升级建议</tspan>：convert_events.py（见第 2 步）</text>
+  <text x="60" y="830"><tspan font-weight="bold">工具评价</tspan>：csv-to-events（r-1112-8f3a）→ ok，结果已核对</text>
   <text x="60" y="856"><tspan font-weight="bold">过期检查</tspan>：perf.md 有 1 条“进行中”已 21 天未更新，建议删除</text>
   <rect x="440" y="878" width="130" height="34" rx="4" fill="#333"/><text x="505" y="900" fill="#fff" text-anchor="middle">确认写入</text>
   <text x="60" y="900" fill="#888" font-size="12">不会自动提交 git</text>
@@ -94,9 +89,10 @@
   <text x="660" y="792" font-weight="bold">agent-temp-idea/（个人层的源头）</text>
   <text x="680" y="818">prompts/principles.md</text><text x="880" y="818" fill="#666" font-size="13">→ 复制到各 client 的个人配置</text>
   <text x="680" y="844">prompts/distill.md</text><text x="880" y="844" fill="#666" font-size="13">→ 各 client 的收尾命令</text>
-  <rect x="660" y="870" width="530" height="56" rx="4" fill="#f3f3f3"/>
-  <text x="675" y="892" font-size="13" fill="#555">$ git log --oneline -1</text>
-  <text x="675" y="914" font-size="13">a1b2c3d  memory: perf 新增 1 条坑，待归类 +1</text>
+  <text x="680" y="870">tools/csv-to-events/</text><text x="880" y="870" fill="#666" font-size="13">→ 工具（skill 格式）+ 使用统计</text>
+  <rect x="660" y="882" width="530" height="54" rx="4" fill="#f3f3f3"/>
+  <text x="675" y="902" font-size="13" fill="#555">$ git log --oneline -1</text>
+  <text x="675" y="924" font-size="13">a1b2c3d  memory: perf 新增 1 条坑，待归类 +1</text>
 
   <!-- flow arrows between panels -->
   <line x1="610" y1="290" x2="628" y2="290" stroke="#555" stroke-width="2" marker-end="url(#ar)"/>

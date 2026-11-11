@@ -17,6 +17,8 @@
 | [docs/research/03-assessment.md](docs/research/03-assessment.md) | 意义评估：正反理由、分项判断 |
 | [docs/design/principles.md](docs/design/principles.md) | 设计原则 |
 | [docs/design/architecture.md](docs/design/architecture.md) | 结构：三层记忆、主题即组、存储后端、写回闭环 |
+| [docs/design/tools.md](docs/design/tools.md) | 脚本与工具：脚本化标准、沉淀触发、skill 格式、统计与评估 |
+| [tools/](tools/INDEX.md) | 工具库（skill 格式）、候选记录 |
 | [docs/design/experiment.md](docs/design/experiment.md) | 两周验证实验 |
 | [docs/design/sketches/product-sketch.svg](docs/design/sketches/product-sketch.svg) | 产品草图：一次完整的使用流程 |
 | [docs/design/sketches/architecture.svg](docs/design/sketches/architecture.svg) | 系统架构线框图 |

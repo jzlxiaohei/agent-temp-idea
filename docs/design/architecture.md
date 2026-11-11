@@ -13,7 +13,7 @@
 
 | 层 | 内容 | 位置 | 生效方式 |
 |---|---|---|---|
-| 个人层 | 工作原则、偏好 | 本仓库 `prompts/principles.md` 为源头，复制或同步到各 client 的个人配置 | 所有项目自动加载 |
+| 个人层 | 工作原则、偏好、工具库 | 本仓库 `prompts/principles.md` 为源头，复制或同步到各 client 的个人配置 | 所有项目自动加载 |
 | 项目层 | 项目目标、约定、真实命令、禁止事项、主题索引 | 项目根目录 `AGENTS.md`（加上 `CLAUDE.md` 转接） | 进入项目自动加载 |
 | 主题层 | 某个主题的背景、决策、坑、未完成事项 | 项目内 `.agents/memory/topics/<主题>.md`（暂定） | 由入口索引指引，按需读取 |
 
@@ -22,6 +22,10 @@
 - Claude Code：`~/.claude/CLAUDE.md`
 - Codex：`~/.codex/AGENTS.md`
 - Cursor：Settings → Rules → User Rules
+
+## 工具库
+
+跨项目复用的脚本沉淀在本仓库 `tools/`，每个工具用 skill 格式打包（渐进式披露），通过 `tools/bin/run` 调用并记录统计。详见 [tools.md](tools.md)。
 
 ## 主题即组
 
@@ -61,7 +65,7 @@ CLAUDE.md                      # 一行：@AGENTS.md
 ## 写回闭环
 
 1. session 结束时运行 [收尾 prompt](../../prompts/distill.md)。
-2. agent 提取候选内容，判断归属层和目标文件，以 diff 形式提议，并给出“三次升级”的建议。
+2. agent 提取候选内容，判断归属层和目标文件，以 diff 形式提议，记录工具候选、提议沉淀，并评价本次用过的工具（见 [tools.md](tools.md)）。
 3. 人确认、删减后写入；在 git 项目中随正常提交一起入库。
 4. “进行中”类条目带日期，过期的在下次收尾时提示清理。
 
