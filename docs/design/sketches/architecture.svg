@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="900" viewBox="0 0 1240 900" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Zen Hei, sans-serif" font-size="14" fill="#222">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <rect width="1240" height="900" fill="#fff"/>
+  <text x="30" y="40" font-size="24" font-weight="bold">系统架构线框图</text>
+  <text x="30" y="66" fill="#666">实线：实验阶段就有的部分；虚线：可选或以后再做；蓝底：本项目定义的内容。</text>
+
+  <!-- User -->
+  <rect x="380" y="88" width="200" height="44" rx="22" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="480" y="116" text-anchor="middle" font-weight="bold">我</text>
+  <line x1="480" y1="132" x2="480" y2="186" stroke="#555" marker-end="url(#ar)"/>
+
+  <!-- Client layer -->
+  <rect x="30" y="188" width="920" height="90" rx="6" fill="#f7f7f7" stroke="#bbb"/>
+  <text x="45" y="214" font-weight="bold">Client 层</text>
+  <text x="45" y="236" fill="#666" font-size="12">各厂商自己的</text>
+  <text x="45" y="252" fill="#666" font-size="12">session 列表</text>
+  <rect x="170" y="210" width="170" height="50" rx="4" fill="#fff" stroke="#333"/><text x="255" y="240" text-anchor="middle">Cursor</text>
+  <rect x="370" y="210" width="170" height="50" rx="4" fill="#fff" stroke="#333"/><text x="455" y="240" text-anchor="middle">Claude Code</text>
+  <rect x="570" y="210" width="170" height="50" rx="4" fill="#fff" stroke="#333"/><text x="655" y="240" text-anchor="middle">Codex</text>
+  <rect x="770" y="210" width="170" height="50" rx="4" fill="#fff" stroke="#888" stroke-dasharray="6 4"/><text x="855" y="240" text-anchor="middle" fill="#666">Pi / Grok（可选）</text>
+
+
+  <!-- Adapter layer -->
+  <rect x="30" y="300" width="920" height="114" rx="6" fill="#f7f7f7" stroke="#bbb"/>
+  <text x="45" y="326" font-weight="bold">读取约定</text>
+  <text x="45" y="348" fill="#666" font-size="12">各家的差异</text>
+  <rect x="170" y="328" width="170" height="50" rx="4" fill="#fff" stroke="#333"/><text x="255" y="350" text-anchor="middle" font-size="13">个人配置</text><text x="255" y="369" text-anchor="middle" font-size="12" fill="#555">User Rules</text>
+  <rect x="370" y="328" width="170" height="50" rx="4" fill="#fff" stroke="#333"/><text x="455" y="350" text-anchor="middle" font-size="13">个人配置</text><text x="455" y="369" text-anchor="middle" font-size="12" fill="#555">~/.claude/CLAUDE.md</text>
+  <rect x="570" y="328" width="170" height="50" rx="4" fill="#fff" stroke="#333"/><text x="655" y="350" text-anchor="middle" font-size="13">个人配置</text><text x="655" y="369" text-anchor="middle" font-size="12" fill="#555">~/.codex/AGENTS.md</text>
+  <rect x="770" y="328" width="170" height="50" rx="4" fill="#fff" stroke="#333"/><text x="855" y="350" text-anchor="middle" font-size="13">项目内 CLAUDE.md</text><text x="855" y="369" text-anchor="middle" font-size="12" fill="#555">一行 @AGENTS.md</text>
+
+
+  <!-- Personal source -->
+  <rect x="30" y="444" width="440" height="206" rx="6" fill="#f7f7f7" stroke="#bbb"/>
+  <text x="45" y="468" font-weight="bold">个人层源头：agent-temp-idea 仓库</text>
+  <rect x="50" y="480" width="190" height="56" rx="4" fill="#e8f0ff" stroke="#333"/><text x="145" y="504" text-anchor="middle">principles.md</text><text x="145" y="524" text-anchor="middle" font-size="12" fill="#555">原则 prompt</text>
+  <rect x="260" y="480" width="190" height="56" rx="4" fill="#e8f0ff" stroke="#333"/><text x="355" y="504" text-anchor="middle">distill.md</text><text x="355" y="524" text-anchor="middle" font-size="12" fill="#555">收尾 prompt</text>
+  <rect x="50" y="552" width="190" height="44" rx="4" fill="#fff" stroke="#333"/><text x="145" y="579" text-anchor="middle" font-size="13">docs/ 调研与设计</text>
+  <rect x="260" y="552" width="190" height="44" rx="4" fill="#fff" stroke="#888" stroke-dasharray="6 4"/><text x="355" y="579" text-anchor="middle" font-size="13" fill="#666">同步脚本 / lint（以后）</text>
+  <text x="50" y="628" fill="#555" font-size="12">experiment-log.md：实验记录也放这里</text>
+
+  <!-- Project memory -->
+  <rect x="490" y="444" width="460" height="206" rx="6" fill="#f7f7f7" stroke="#bbb"/>
+  <text x="505" y="468" font-weight="bold">项目层 / 主题层：每个项目内</text>
+  <rect x="510" y="480" width="200" height="56" rx="4" fill="#e8f0ff" stroke="#333"/><text x="610" y="504" text-anchor="middle">AGENTS.md 入口</text><text x="610" y="524" text-anchor="middle" font-size="12" fill="#555">约定·命令·主题索引·待归类</text>
+  <rect x="730" y="480" width="200" height="56" rx="4" fill="#e8f0ff" stroke="#333"/><text x="830" y="504" text-anchor="middle">topics/*.md</text><text x="830" y="524" text-anchor="middle" font-size="12" fill="#555">主题即组 · 按需读取</text>
+  <line x1="710" y1="508" x2="728" y2="508" stroke="#555" marker-end="url(#ar)"/>
+  <rect x="510" y="552" width="200" height="44" rx="4" fill="#e8f0ff" stroke="#333"/><text x="610" y="579" text-anchor="middle" font-size="13">decisions.md</text>
+  <rect x="730" y="552" width="200" height="44" rx="4" fill="#fff" stroke="#888" stroke-dasharray="6 4"/><text x="830" y="572" text-anchor="middle" font-size="12" fill="#666">路径规则 / 子目录 AGENTS.md</text><text x="830" y="588" text-anchor="middle" font-size="12" fill="#666">（编码项目可选）</text>
+  <text x="510" y="628" fill="#555" font-size="12">主题文件、decisions.md 位于 .agents/memory/ 下（暂定）</text>
+
+
+  <!-- Storage -->
+  <rect x="30" y="682" width="920" height="96" rx="6" fill="#f7f7f7" stroke="#bbb"/>
+  <text x="45" y="708" font-weight="bold">存储后端</text>
+  <text x="45" y="730" fill="#666" font-size="12">用现成的</text>
+  <rect x="170" y="706" width="460" height="52" rx="4" fill="#fff" stroke="#333"/><text x="400" y="728" text-anchor="middle">私有 git 仓库 + markdown（基线）</text><text x="400" y="747" text-anchor="middle" font-size="12" fill="#555">本地直接读；云端 agent clone 仓库</text>
+  <rect x="650" y="706" width="290" height="52" rx="4" fill="#fff" stroke="#888" stroke-dasharray="6 4"/><text x="795" y="728" text-anchor="middle" fill="#666">第三方记忆服务（MCP）</text><text x="795" y="747" text-anchor="middle" font-size="12" fill="#666">按需选型：Basic Memory / mem0 …</text>
+
+  <!-- Right: model access -->
+  <rect x="975" y="188" width="240" height="90" rx="6" fill="none" stroke="#888" stroke-dasharray="6 4"/>
+  <text x="990" y="212" font-weight="bold" fill="#666">模型接入层（不在范围）</text>
+  <text x="990" y="236" font-size="12" fill="#666">Magpie 等：选模型、切 provider、</text>
+  <text x="990" y="254" font-size="12" fill="#666">路由 → 各模型厂商 API</text>
+  <line x1="950" y1="233" x2="973" y2="233" stroke="#888" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+
+  <!-- Right: write-back loop -->
+  <rect x="975" y="300" width="240" height="478" rx="6" fill="#f7f7f7" stroke="#bbb"/>
+  <text x="990" y="326" font-weight="bold">写回闭环</text>
+  <rect x="990" y="342" width="200" height="40" rx="4" fill="#fff" stroke="#333"/><text x="1090" y="358" text-anchor="middle" font-size="13">session 工作</text><text x="1090" y="374" text-anchor="middle" font-size="11" fill="#555">读入口，按需读主题</text>
+  <rect x="990" y="408" width="200" height="40" rx="4" fill="#e8f0ff" stroke="#333"/><text x="1090" y="433" text-anchor="middle" font-size="13">运行收尾 prompt</text>
+  <rect x="990" y="474" width="200" height="40" rx="4" fill="#fff" stroke="#333"/><text x="1090" y="490" text-anchor="middle" font-size="13">提取候选</text><text x="1090" y="506" text-anchor="middle" font-size="11" fill="#555">判断归属层 · 查冲突与过期</text>
+  <rect x="990" y="540" width="200" height="40" rx="4" fill="#fff" stroke="#333"/><text x="1090" y="565" text-anchor="middle" font-size="13">以 diff 提议 + 升级建议</text>
+  <rect x="990" y="606" width="200" height="40" rx="4" fill="#333"/><text x="1090" y="631" text-anchor="middle" font-size="13" fill="#fff">我确认 / 修改 / 拒绝</text>
+  <rect x="990" y="672" width="200" height="40" rx="4" fill="#fff" stroke="#333"/><text x="1090" y="697" text-anchor="middle" font-size="13">写入记忆文件</text>
+  <line x1="1090" y1="382" x2="1090" y2="406" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="1090" y1="448" x2="1090" y2="472" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="1090" y1="514" x2="1090" y2="538" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="1090" y1="580" x2="1090" y2="604" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="1090" y1="646" x2="1090" y2="670" stroke="#555" marker-end="url(#ar)"/>
+  <polyline points="1190,692 1205,692 1205,362 1192,362" fill="none" stroke="#555" marker-end="url(#ar)"/>
+  <text x="990" y="740" font-size="12" fill="#555">下一次 session 读到这次写入的内容</text>
+  <text x="990" y="760" font-size="12" fill="#555">不自动提交 git</text>
+
+  <!-- arrows (drawn last so they sit above the layer backgrounds) -->
+  <line x1="255" y1="260" x2="255" y2="326" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="455" y1="260" x2="455" y2="326" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="655" y1="260" x2="655" y2="326" stroke="#555" marker-end="url(#ar)"/>
+  <polyline points="145,478 145,429 710,429" fill="none" stroke="#555"/>
+  <line x1="310" y1="429" x2="310" y2="380" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="510" y1="429" x2="510" y2="380" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="710" y1="429" x2="710" y2="380" stroke="#555" marker-end="url(#ar)"/>
+  <text x="285" y="468" fill="#555" font-size="12">↑ 手工复制（以后脚本同步）</text>
+  <polyline points="855,378 855,433 690,433 690,478" fill="none" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="250" y1="650" x2="250" y2="704" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="600" y1="650" x2="600" y2="704" stroke="#555" marker-end="url(#ar)"/>
+  <line x1="830" y1="650" x2="830" y2="704" stroke="#888" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+
+  <!-- Legend -->
+  <line x1="30" y1="812" x2="70" y2="812" stroke="#333" stroke-width="1.5"/><text x="78" y="817" font-size="13">实验阶段就有</text>
+  <line x1="200" y1="812" x2="240" y2="812" stroke="#888" stroke-width="1.5" stroke-dasharray="6 4"/><text x="248" y="817" font-size="13">可选 / 以后</text>
+  <rect x="360" y="803" width="30" height="18" fill="#e8f0ff" stroke="#333"/><text x="398" y="817" font-size="13">本项目定义的内容（prompt 与记忆约定）</text>
+  <text x="30" y="850" font-size="12" fill="#666">本项目只定义 prompt 和记忆的组织约定；client、读取机制、存储、模型接入都用现成的。</text>
+  <text x="30" y="874" font-size="12" fill="#666">读取方式：Cursor、Codex 直接读项目的 AGENTS.md；Claude Code 经项目内 CLAUDE.md 转接。</text>
+</svg>

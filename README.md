@@ -18,6 +18,8 @@
 | [docs/design/principles.md](docs/design/principles.md) | 设计原则 |
 | [docs/design/architecture.md](docs/design/architecture.md) | 结构：三层记忆、主题即组、存储后端、写回闭环 |
 | [docs/design/experiment.md](docs/design/experiment.md) | 两周验证实验 |
+| [docs/design/sketches/product-sketch.svg](docs/design/sketches/product-sketch.svg) | 产品草图：一次完整的使用流程 |
+| [docs/design/sketches/architecture.svg](docs/design/sketches/architecture.svg) | 系统架构线框图 |
 | [prompts/principles.md](prompts/principles.md) | 原则 prompt（个人层，放进各 client 的个人配置） |
 | [prompts/distill.md](prompts/distill.md) | 收尾 prompt（session 结束时运行） |
 
