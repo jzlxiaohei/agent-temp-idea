@@ -46,7 +46,7 @@
   <rect x="765" y="318" width="70" height="28" rx="4" fill="none" stroke="#999"/><text x="800" y="337" text-anchor="middle">稍后</text>
   <rect x="845" y="318" width="70" height="28" rx="4" fill="none" stroke="#999"/><text x="880" y="337" text-anchor="middle">忽略</text>
   <rect x="670" y="372" width="510" height="62" rx="4" fill="#f3f3f3"/>
-  <text x="685" y="395" font-size="13" fill="#555">$ tools/bin/stats csv-to-events</text>
+  <text x="685" y="395" font-size="13" fill="#555">工具统计（遥测 / hooks 自动采集）· csv-to-events</text>
   <text x="685" y="419" font-size="13">调用 7 次 · 成功 6 · 评价 ok 5 / partial 1 · 最近 11-12</text>
   <text x="670" y="456" fill="#888" font-size="12">（没跑过验证的结论会标注“未验证”）</text>
 

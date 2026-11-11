@@ -62,7 +62,7 @@ agent 本身不知道跨 session 的次数，所以收尾流程会把本次用�
 tools/
   INDEX.md                 # 自动生成：id + 一句话说明（给不支持 skill 的 client 用）
   candidates.md            # 候选记录
-  bin/                     # 统计用的小脚本：run / feedback / stats / index
+  bin/                     # 必要的小脚本（如生成 INDEX.md），按需添加
   scripting-guide/         # 写脚本的规范，本身也是一个 skill
     SKILL.md
   <id>/
@@ -82,7 +82,7 @@ metadata:
 ---
 
 ## 用法
-$AGENT_HOME/tools/bin/run csv-to-events <输入.csv> <输出.json>
+python3 $AGENT_HOME/tools/csv-to-events/scripts/main.py <输入.csv> <输出.json>
 
 ## 注意
 - ...
@@ -101,23 +101,27 @@ $AGENT_HOME/tools/bin/run csv-to-events <输入.csv> <输出.json>
 
 ## 5. 统计与评估
 
-### 记录什么
+### 原则：采集不依赖 agent 自觉
 
-所有工具都通过 `tools/bin/run <id> [参数]` 调用。`run` 执行入口脚本，并追加一行 JSONL：
+早期设计要求所有工具都通过 `tools/bin/run` 包装脚本调用，由它记录日志。问题是 agent 一旦直接运行脚本，就不会被记录。现在改为**从外部捕获所有工具调用**，再识别出哪些是工具库里的工具：
 
-```json
-{"run_id":"r-20261112-8f3a","ts":"2026-11-12T10:03:00+08:00","id":"csv-to-events","version":"1",
- "project":"my-project","client":"claude-code","exit":0,"duration_ms":842}
+- **采集**：用 client 官方遥测（Claude Code、Codex 支持 OpenTelemetry），或工具调用后的 hook。每次调用都有工具名、命令、是否成功、耗时。
+- **识别**：执行的命令路径落在 `$AGENT_HOME/tools/<id>/` 下的，就是工具库里的工具 `<id>`。版本从该工具 SKILL.md 的 `metadata.version` 读取。
+- **接收与存储**：本地的 OTel 接收端或监听工具（候选见 [04-existing-tools.md](../research/04-existing-tools.md)），不自己写。
+
+记录的字段（以采集来源实际提供的为准）：
+
+```
+时间 · client · session id · 项目 · 工具 id · 版本 · 是否成功 · 耗时
 ```
 
-效果评价分两部分：
+### 主观评价
 
-- **客观**：退出码（是否报错）、耗时，由 `run` 自动记录。
-- **主观**：结果是否真的有用。收尾流程会列出本次调用过的工具，提议评价（`ok` / `partial` / `fail` + 一句话），我确认后由 `tools/bin/feedback <run_id> <评价> [备注]` 追加记录。
+退出码只说明“有没有报错”，不说明“有没有用”。所以收尾流程会列出本次调用过的工具，提议评价（`ok` / `partial` / `fail` + 一句话），我确认后记录下来，并通过 session id + 工具 id 与调用记录关联。评价存放方式待定（可以是本地 JSONL，或评估选中的工具自带的标注功能）。
 
 ### 看什么
 
-`tools/bin/stats` 输出每个工具的：调用次数、成功率（退出码）、评价分布、最近使用时间、版本。
+每个工具的：调用次数、成功率、评价分布、最近使用时间、版本。优先用监听工具自带的看板；不够时再写一个汇总脚本。
 
 ### 用来做什么
 
@@ -131,8 +135,6 @@ $AGENT_HOME/tools/bin/run csv-to-events <输入.csv> <输出.json>
 
 ### 待定
 
-- **日志放哪里**：
-  - 方案 A（推荐先用）：本机 `~/.local/state/agent-tools/usage.jsonl`，不进 git。简单，但云端 session 的记录会随容器丢失，多台机器之间不合并。
-  - 方案 B：进本仓库 `usage/<主机名>.jsonl`，按机器分文件避免冲突。能汇总，但会频繁产生提交。
-- **统计依赖 agent 遵守“通过 run 调用”**：直接运行脚本不会被记录。实验中观察遵守程度。
-- `tools/bin/` 的四个小脚本（run / feedback / stats / index）还没写，先完成文档；实验开始前再实现。它们本身是确定性代码，不调用模型。
+- **采集方案**：官方遥测 + 本地接收端，还是 hooks + 监听工具，见 [04-existing-tools.md](../research/04-existing-tools.md) 的试用结果。Cursor 的采集能力需要实测。
+- **主观评价的存放**：本地 JSONL，或选中工具自带的标注功能。
+- 实现推迟到评估完成之后。

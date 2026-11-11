@@ -17,7 +17,7 @@ metadata:
 ## 临时脚本
 
 - 放临时目录（client 提供的 scratchpad，或系统临时目录），不放进项目。
-- 先查工具库（skill 列表或 `$AGENT_HOME/tools/INDEX.md`）里有没有现成的，有就用 `$AGENT_HOME/tools/bin/run <id>`，不要重写。
+- 先查工具库（skill 列表或 `$AGENT_HOME/tools/INDEX.md`）里有没有现成的，有就按它的 SKILL.md 调用，不要重写。
 
 ## 写法
 

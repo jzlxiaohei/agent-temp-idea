@@ -19,7 +19,7 @@
 
 ## 工具
 - 工具库在 `$AGENT_HOME/tools/`，每个工具是 skill 格式，目录名即 id。先看一句话说明，用到时再读详情。不支持 skill 的 client 读 `$AGENT_HOME/tools/INDEX.md`。
-- 有现成工具就用 `$AGENT_HOME/tools/bin/run <id> 参数` 调用（会记录统计），不要重写，也不要绕过 run 直接执行。
+- 有现成工具就按它的 SKILL.md 调用，不要重写。
 - 同类任务再次出现（查记忆和 `$AGENT_HOME/tools/candidates.md`），或我说明这是常做的事，提议沉淀成工具，说明用途、位置、维护成本；我确认后再创建。
 - 形式按用途选：只在一个项目用的放项目内 `scripts/`；跨项目的进工具库；需要跨 client 当函数调用或连外部服务的才做 MCP 工具。
 - 长期不用或效果差的工具，提议删除或改进。

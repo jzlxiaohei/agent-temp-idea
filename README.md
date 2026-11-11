@@ -15,6 +15,7 @@
 | [docs/research/01-problem.md](docs/research/01-problem.md) | 问题拆解：session 平铺列表的不足、分组和图谱的风险 |
 | [docs/research/02-landscape.md](docs/research/02-landscape.md) | 现状调研：各 client 的记忆机制、社区标准、第三方记忆服务、Magpie |
 | [docs/research/03-assessment.md](docs/research/03-assessment.md) | 意义评估：正反理由、分项判断 |
+| [docs/research/04-existing-tools.md](docs/research/04-existing-tools.md) | 现成工具评估：伴随 app 方向、需求清单、四类候选、评估标准、试用步骤 |
 | [docs/design/principles.md](docs/design/principles.md) | 设计原则 |
 | [docs/design/architecture.md](docs/design/architecture.md) | 结构：三层记忆、主题即组、存储后端、写回闭环 |
 | [docs/design/tools.md](docs/design/tools.md) | 脚本与工具：脚本化标准、沉淀触发、skill 格式、统计与评估 |
