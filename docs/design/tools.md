@@ -125,10 +125,14 @@ $AGENT_HOME/tools/bin/run csv-to-events <输入.csv> <输出.json>
 - **改进**：`partial` / `fail` 的备注就是改进清单。
 - **验证意义**：两周实验评估时，看沉淀下来的工具是否真的被反复调用。
 
+### 工具内部调用模型
+
+能用确定性代码解决的，不调模型。确实需要的，走 API 或网关，并在统计里额外记录模型名和 token 用量。见 [llm-invocation.md](llm-invocation.md)。
+
 ### 待定
 
 - **日志放哪里**：
   - 方案 A（推荐先用）：本机 `~/.local/state/agent-tools/usage.jsonl`，不进 git。简单，但云端 session 的记录会随容器丢失，多台机器之间不合并。
   - 方案 B：进本仓库 `usage/<主机名>.jsonl`，按机器分文件避免冲突。能汇总，但会频繁产生提交。
 - **统计依赖 agent 遵守“通过 run 调用”**：直接运行脚本不会被记录。实验中观察遵守程度。
-- `tools/bin/` 的四个小脚本还没写；它们本身是确定性代码，符合“确定性交给脚本”的原则。
+- `tools/bin/` 的四个小脚本（run / feedback / stats / index）还没写，先完成文档；实验开始前再实现。它们本身是确定性代码，不调用模型。

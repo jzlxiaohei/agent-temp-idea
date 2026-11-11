@@ -4,7 +4,7 @@
 
 | 层 | 管什么 | 代表 |
 |---|---|---|
-| 模型接入层 | agent 用哪个模型、怎么计费和路由 | Magpie |
+| 模型接入层 | agent 用哪个模型、怎么计费和路由 | Magpie（可选）；调用方式见 [llm-invocation.md](llm-invocation.md) |
 | 原则层 | agent 按什么方法干活 | **本项目：原则 prompt** |
 | 上下文 / 记忆层 | agent 知道什么 | **本项目：记忆约定 + 收尾流程**；存储用 git 或第三方 |
 | 会话组织层 | session 怎么找回、怎么关联 | 不做，交给厂商 |
@@ -22,6 +22,10 @@
 - Claude Code：`~/.claude/CLAUDE.md`
 - Codex：`~/.codex/AGENTS.md`
 - Cursor：Settings → Rules → User Rules
+
+## 调用大模型
+
+核心流程不直接调用模型：交互工作由 client 调用；以后的自动化任务用 headless agent CLI（`claude -p`、`codex exec` 等）经适配脚本调用；工具内部的纯文本小调用走 API 或网关。详见 [llm-invocation.md](llm-invocation.md)。
 
 ## 工具库
 
